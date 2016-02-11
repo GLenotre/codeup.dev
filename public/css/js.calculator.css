@@ -1,0 +1,38 @@
+h2 {
+    color: black;
+    font-family: Perpetua, Serif;
+    font-weight: bold;
+     margin: 5px 60px;
+  
+}
+body {
+    font-family: verdana, times, serif;
+    background-color: black;
+    padding-top: 90px;
+    background-image: url(https://scontent-dfw1-1.xx.fbcdn.net/hphotos-ash2/t31.0-0/p180x540/1398066_10153362810560175_1500727932_o.jpg); 
+    background-size: cover;
+}
+
+.keypads button {
+    width: 73px;
+    height: 30px;
+    float: left;
+}
+#fields {
+    margin: 1px;
+}
+button {
+    margin: 1px;
+    background-color: white;
+    color: black;
+    overflow: auto;
+}
+
+input {
+    background-color: white;
+    clear: both;
+    color: black;
+    margin: 5px 60px;
+    border-color: white;
+    box-shadow: 2px 3px 2px white;
+}

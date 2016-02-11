@@ -1,9 +1,53 @@
-<input id ="left" type="text">
-<input id ="center" type="text">
-<input id ="right" type="text">
-<br>
-<button id="butn1">1</button>
-<button id="butn2">2</button>
-<button id="butn3">3</button>
-<button id="butn4">4</button>
-<button id="butn5">5</button>
+<!doctype>
+
+
+<html>
+<head>
+	<link rel="stylesheet" href="/css/js.calculator.css">
+	<title>JS Calculator</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+
+<body>
+ <div class= "container">
+	   <div class="row">
+	 	    <div class="col-sm-4 hidden-xs"></div>
+    	 	<div class="col-xs-4">
+
+        <h2>JS Calculator</h2>  
+        <div id = "fields">
+          <input id="inputleft" readonly></input>
+          <input id="inputcenter" readonly></input>
+          <input id="inputright" readonly></input>
+        </div>
+<h2></h2>
+			<div class = "keypads">
+				<button class="numeral" data-value="1">I</button>
+			    <button class="numeral" data-value="2">II</button>
+			    <button class="numeral" data-value="3">III</button>
+			    <button class="numeral" data-value="4">IV</button>
+			    <button class="numeral" data-value="5">V</button>
+			    <button class="numeral" data-value="6">VI</button>
+			    <button class="numeral" data-value="7">VII</button>
+			    <button class="numeral" data-value="8">VIII</button>
+			    <button class="numeral" data-value="9">IX</button>
+			    <button class="numeral" data-value="10">X</button>
+			    <button class="numeral" data-value="0">Nihil</button>
+			    <button id="period" data-value='.'>.</button>
+			    <button id="clear" data-value="c">CE</button>
+				<button class="operator" data-symbol="+">+</button>
+			    <button class="operator" data-symbol="-">-</button>
+			    <button class="operator" data-symbol="*">*</button>
+			    <button class="operator" data-symbol="/">/</button>
+			    <button class="operator" data-symbol="√">√</button>
+			    <button class="operator" data-symbol="^">^</button>
+			    <button id="equal" data-value="=">=</button>
+		</div>
+	</div>
+  <div class="col-sm-4 hidden-xs"></div>
+	 	</div> 
+
+</div>
+
+<script src="/js/js.calculator.js"></script>
+</html>

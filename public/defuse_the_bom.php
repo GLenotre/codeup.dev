@@ -28,7 +28,7 @@
         // cancel the interval/timeout for updateTimer()
         function defuseTheBOM()
         {
-
+            document....
         }
 
         // Don't modify anything below this line!
