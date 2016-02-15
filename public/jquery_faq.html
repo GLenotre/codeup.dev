@@ -19,6 +19,25 @@
 		<dt>How do I hike in one?</dt>
 		<dd class="invisible">You put on hiking shoes and then drive there.</dd>
 	</dl>
+
+
+	<h1>Parks List</h1>
+	    <h3>National Parks</h3>
+		    <ul id="national-parks">
+		        <li>Arches</li>
+		        <li>Badlands</li>
+		        <li>Carlsbad Caverns</li>
+		        <li>Denali</li>
+		        <li>Everglades</li>
+		    </ul>
+	    <h3>State Parks of Texas</h3>
+		    <ul id="state-parks-texas">
+		        <li>Abilene</li>
+		        <li>Big Bend</li>
+		        <li>Choke Canyon</li>
+		        <li>Davis Mountains</li>
+		        <li>Enchanted Rock</li>
+		    </ul>
 	<style>
 		.invisible {
 			display: none;		
@@ -30,15 +49,24 @@
  	<script>
 		
 		$(document).ready(function(){
-			$('#toggle').click(function(e) {
-				e.preventDefault();
-				$('dd').toggleClass('invisible');
-			});
+			// $('#toggle').click(function(e) {
+				// 	e.preventDefault();
+				// 	$('dd').toggleClass('invisible');
+			// });
 			// $('dd').removeClass('invisible'); 
-						
+			$('ul').each(function(index){
+				$(this).children().first().css('font-weight', 'bold');
+			});
+
+			$('li').click(function(index){
+				$(this).parent().addClass('invisible');
+			});
+			
 		});
 
-		// Update the page with jQuery to add a link that toggles the class invisible on and off for all dd elements.
+// Create jQuery code that adds the invisible class on the parent ul of any li that is clicked.
+
+
 
  	</script>
 </body>
