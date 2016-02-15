@@ -28,8 +28,11 @@
         // cancel the interval/timeout for updateTimer()
         function defuseTheBOM()
         {
-            document....
+            document.getElementById('defuser');
+            clearInterval(intervalId);
         }
+        var intervalId = setInterval(updateTimer, 1000); 
+
 
         // Don't modify anything below this line!
         //

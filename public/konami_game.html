@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+    <h1>Konami Code</h1>
+
+
+	<div id="log"></div>
+
+    <script src="/js/jquery-1.11.3.min.js"></script>
+    <script>
+        "use strict";
+
+$(document).ready(function() {          
+    "use strict";
+    var contra = "38,38,40,40,37,39,37,39,66,65";  // can turn this into an array proper [38, 38]
+    var answer = []
+
+     $(document).keyup(function(event) {
+        answer.push(event.keyCode);
+        console.log(event.keyCode);
+        console.log(answer);
+        if(answer.toString().indexOf(contra) >= 0){  // then join the arrays 
+            $("*").css('background-color','chartreuse')
+            .css('font-family', 'Monospace')
+            .css('font-size', '40px');
+            $("p").html("You win!!!");
+            console.log(answer);
+            answer = []
+        }
+    });
+});
+
+
+    </script>
+</body>
+</html>
