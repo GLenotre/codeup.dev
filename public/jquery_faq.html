@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<title>jquery_faq</title>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+	<h1>National Parks FAQ</h1>
+	<dl id="toggle">
+
+		<dt>What is it?</dt>
+		<dd class="invisible">It's a place to put trees and stuff.</dd>
+		<dt>Why do we have them?</dt>
+		<dd class="invisible">We have them to put trees and stuff.</dd>
+		<dt>Where are they located?</dt>
+		<dd class="invisible">They are located where you find lots of trees.</dd>
+		<dt>Who  goes to them?</dt>
+		<dd class="invisible">People who like trees go to parks.</dd>
+		<dt>How do I hike in one?</dt>
+		<dd class="invisible">You put on hiking shoes and then drive there.</dd>
+	</dl>
+	<style>
+		.invisible {
+			display: none;		
+		}
+
+
+	</style>
+
+ 	<script>
+		
+		$(document).ready(function(){
+			$('#toggle').click(function(e) {
+				e.preventDefault();
+				$('dd').toggleClass('invisible');
+			});
+			// $('dd').removeClass('invisible'); 
+						
+		});
+
+		// Update the page with jQuery to add a link that toggles the class invisible on and off for all dd elements.
+
+ 	</script>
+</body>
+</html>
