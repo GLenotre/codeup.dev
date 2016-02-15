@@ -6,7 +6,6 @@
 </head>
 <body>
 	<h1>National Parks FAQ</h1>
-	<dl id="toggle">
 
 		<dt>What is it?</dt>
 		<dd class="invisible">It's a place to put trees and stuff.</dd>
@@ -22,7 +21,7 @@
 
 
 	<h1>Parks List</h1>
-	    <h3>National Parks</h3>
+	    <h3 class="toggle">National Parks</h3>
 		    <ul id="national-parks">
 		        <li>Arches</li>
 		        <li>Badlands</li>
@@ -30,7 +29,7 @@
 		        <li>Denali</li>
 		        <li>Everglades</li>
 		    </ul>
-	    <h3>State Parks of Texas</h3>
+	    <h3 class="toggle">State Parks of Texas</h3>
 		    <ul id="state-parks-texas">
 		        <li>Abilene</li>
 		        <li>Big Bend</li>
@@ -38,6 +37,7 @@
 		        <li>Davis Mountains</li>
 		        <li>Enchanted Rock</li>
 		    </ul>
+
 	<style>
 		.invisible {
 			display: none;		
@@ -54,14 +54,21 @@
 				// 	$('dd').toggleClass('invisible');
 			// });
 			// $('dd').removeClass('invisible'); 
-			$('ul').each(function(index){
-				$(this).children().first().css('font-weight', 'bold');
-			});
 
-			$('li').click(function(index){
-				$(this).parent().addClass('invisible');
-			});
-			
+			// $('ul').each(function(index){
+			// 	$(this).children().first().css('font-weight', 'bold');
+			// });
+
+			// $('li').click(function(index){
+			// 	$(this).parent().addClass('invisible');
+			// });
+
+		$('.toggle').click(function() {
+        	// $('li').toggle();
+        	$('li').hide();
+    	});
+
+//Update the li clicks adding invisible to the parent ul to instead use .hide().
 		});
 
 // Create jQuery code that adds the invisible class on the parent ul of any li that is clicked.
