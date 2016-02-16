@@ -64,7 +64,9 @@
 			// });
 
 		$('.toggle').click(function() {
-        	$('li').fadeToggle();
+			$(this).next().slideToggle();
+        	//$('#national-parks').slideToggle();
+        	// $('#state-parks-texas').slideToggle();
         	// $('li').fadeOut();
     	});
 
