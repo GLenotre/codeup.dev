@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animate</title>
+    <style>
+        html, body {
+            margin: 0px;
+            padding: 0;
+        }
+
+        #btn-animate {
+            margin: 15px;
+        }
+
+        #animate-box {
+            background-color: #000033;
+            height: 250px;
+            margin: 15px;
+            position: relative;
+            width: 250px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <button id="btn-move">Move It</button>
+        <button id="btn-scale">Scale It</button>
+        <button id="btn-hide">Hide It</button>
+        <button id="btn-show">Show It</button>
+        <button id="btn-all">Animate All</button>
+    </p>
+
+    <div id="animate-box"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        "use strict";
+        // TODO: "Move It" should move the box 100 pixels to the left
+        $("#btn-move").click(function() {
+            $("#animate-box").animate({
+                right: "+=100px",
+            }, 800);
+        });
+        // TODO: "Scale It" should expand the box width by 50%
+        $("#btn-scale").click(function() {
+            $("#animate-box").animate({
+                width: "+=125px",
+            }, 800);
+        });
+        // TODO: "Hide It" should use opacity to make the box invisible
+        $("#btn-hide").click(function() {
+            $("#animate-box").animate({
+                opacity: 0.0,
+            }, 800);
+        });
+
+        // TODO: "Show It" should make the box appear
+        $("#btn-show").click(function() {
+            $("#animate-box").animate({
+                opacity: 1.0,
+            }, 800);
+        });
+
+        // TODO: "Animate All" should use an animation stack to:
+        $("#btn-all").click(function() {
+            $("#animate-box").animate({
+                right: "toggle",
+                opacity: "toggle",
+                width: "toggle",
+            }, 100, blink);
+        });        
+    });
+    </script>
+</body>
+</html>
