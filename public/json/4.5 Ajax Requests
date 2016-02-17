@@ -1,0 +1,33 @@
+4.5 Ajax Requests
+
+$.ajax('/json/test.com') {		// could also include the url as a property --> url : '/json/test.json' 
+	type: "GET",
+	data: {
+		foo : 'foo',
+	}
+	username : 'username',
+	password : 'password'
+	// dataType : 'json"'
+
+}
+
+
+$.get('http://scrapper.io/icemancast/api/codeup/blog').done(function(posts) { //$.ajax('/data/invenotry.json').done
+	function (posts){
+	console.log(posts);
+	
+	
+	posts.forEach(function(post){  // post to element
+
+		var contentString = '';
+		contentString += "<tr>";
+			contentString += "<td>" + post.date + "</td>";		//date property
+			contentString += "<td>" + post.title + "</td>";
+			contentString += "<td>" + post.post + "</td>";
+			contentString += "<td>" + post.author + "</td>";   // author property
+			contentString += "<td>" + post.categories.join(', ') + "</td>";
+		contentString += "</tr>";
+
+	$('#posts-table-body').append(html);
+	})
+})

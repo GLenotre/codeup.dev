@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        
+
+<style>
+
+body {
+    background-image: url("https://scontent-dfw1-1.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/74799_10152130792475175_2018992718_n.jpg?oh=046eb775e18cb82868ea94cca796e8d8&oe=572E9C5D");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-decoration: bold;
+}
+
+#products { 
+
+    border-style: solid;
+    background-color: #B3A18D;
+}
+
+</style>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <h1>San Antonio Hardware</h1>
+                <table id="products">
+                    <thead>
+                        <tr>
+                            <th>Title </th>
+                            <th>Quantity </th>
+                            <th>Price </th>
+                            <th>Categories </th>
+                        </tr>
+                    </thead>
+                <tbody id="insertProducts"></table>
+            <button id="refresh">Refresh</button>
+        </div>
+    </div>
+</div>
+<script>
+
+    (function() {
+        // TODO: Create an ajax GET request for /data/inventory.json
+        function refresh () {
+            $.get("/json/inventory.json").done(function(data) {
+                data.forEach(function (tool, index) {
+                    var merchandise = "<tr>";
+                    merchandise += "<td>" + tool.title + "</td>";
+                    merchandise += "<td>" + tool.quantity + " </td>";
+                    merchandise += "<td>" + tool.price + " </td>";
+                    merchandise += "<td>";
+                    tool.categories.forEach(function(category, index){
+                        merchandise += " " + category;
+                    });
+                    merchandise += "</td>";
+                    merchandise += "</tr>";    
+                $('#insertProducts').append(merchandise);
+                //
+                });
+            // ends ajax
+            }); 
+
+
+        // ends refresh
+        }
+        $('#refresh').click(function(event) {
+            $('#insertProducts').html("");
+            refresh();
+        //ends ajax
+        });
+
+        refresh();
+
+    // ends iffe
+    })();
+ 
+// console.table(merchandise); 
+
+
+
+</script>
+
+</body>
+</html>
+
