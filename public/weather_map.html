@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+	<title>weather_map</title>
+</head>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<style>
+
+body {
+    background-image: url("https://scontent-dfw1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/12573970_10156392371110175_4811884541835551683_n.jpg?oh=401cc8b26d49be23075614e84f570a92&oe=576C56C8");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-decoration: bold;
+}
+	
+</style>
+<body>
+
+    <h1></h1>
+    <h2></h2>
+    <h3></h3>
+    <p></p>
+
+ 	<script>
+
+
+    $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+        APPID: "c35e9cc8aa3a9b26f382affa05b0fa7d",
+        q:     "San Antonio, TX",
+        units: "imperial"
+        }).done(function(weather_data) {
+        console.log(weather_data);
+        var HTMLcontent;
+        var cityName = weather_data.city.name + ", " + weather_data.city.country;
+            $("h1").html(cityName);
+                weather_data.list.forEach(function (day, index){    
+                var dt = new Date(day.dt*1000);
+                var jour = dt.getDay();
+                var month = dt.getMonth();
+                var date = dt.getDate();
+                $("h3").html(jour + " / " + month + " / " + date);
+                HTMLcontent += "<p><strong>Weather: " + day.weather[0].description + "</strong></p>";
+                HTMLcontent += "<p><strong>Wind: " + day.speed + " mph</strong></p>";
+                HTMLcontent += "<p><strong>High: " + day.temp.max + "&deg;</strong></p>";
+                HTMLcontent += "<p><strong>Low: " + day.temp.min + "&deg;</strong></p>";
+
+                })
+            $("p").append(HTMLcontent);
+//ends ajax            
+}); 
+
+ 	</script>
+</body>
+</html>
