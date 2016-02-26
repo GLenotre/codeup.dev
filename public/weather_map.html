@@ -1,9 +1,14 @@
 <!doctype html>
 <html>
 <head>
-	<title>weather_map</title>
+	<meta charset="UTF-8">
+    <meta name="description" content="Weather Map">
+    <title>weather_map</title>
+    <!-- <link rel="stylesheet" href="/bootstrap/css/bootstrap.css"> -->
 </head>
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- <script src="/moment/moment.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <style>
 
 body {
@@ -16,6 +21,27 @@ body {
 </style>
 <body>
 
+<head>
+    
+    <h1>Weather Forecast</h1>
+    <h4></h4>
+
+  <!--   <div id="weather">
+        <div class="day1"></div>
+        <div class="day2"></div>
+        <div class="day3"></div>
+    </div>
+
+    <div id="map"></div>
+ -->
+    <form>
+        <input type="text" id="latLongCity" placeholder="Enter an address or latitude / longitude.">
+        <button class="btn btn-danger">Submit</button>
+    </form>
+
+
+
+
     <h1></h1>
     <h2></h2>
     <h3></h3>
@@ -26,7 +52,7 @@ body {
 
     $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
         APPID: "c35e9cc8aa3a9b26f382affa05b0fa7d",
-        q:     "San Antonio, TX",
+        p: "San Antonio",
         units: "imperial"
         }).done(function(weather_data) {
         console.log(weather_data);
@@ -48,6 +74,8 @@ body {
             $("p").append(HTMLcontent);
 //ends ajax            
 }); 
+
+
 
  	</script>
 </body>
