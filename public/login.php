@@ -28,11 +28,11 @@
 		// save value as the username
 		$_SESSION['LOGGED_IN_USER'] = $username;
 		header('Location: /authorized.php');
-		die;
+		die();
 
 	// checking to see if they entered the wrong information
 	// prevents meesage from showing when user submitted nothing or first time loading
-	} else if ($correctName != '' || $correctPassword != '') {
+	} else if ($correctName != '' && $correctPassword != '') {
 		echo ("Password was incorrect");
 	}
 
