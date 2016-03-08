@@ -5,7 +5,13 @@ $password = 'password';
 $correctName = isset($_POST['User']) ? $_POST['User'] : '';
 $correctPassword = isset($_POST['Password'])? $_POST['Password'] :'';
 
-if ($correctName == $name && $correctPassword == $password) {
+if (isset($_SESSION['LOGGED_IN_USER'])) && $_SESSION['LOGGED_IN_USER'] != '') {
+	header('Location: /authorized.php');
+	die();
+}
+
+else if ($correctName == $name && $correctPassword == $password) {
+	$_SESSION['LOGGED_IN_USER'] = $username;
 	header('Location: /authorized.php');
 	die;
 } else if ($correctName != $name && $correctPassword != $password) {
