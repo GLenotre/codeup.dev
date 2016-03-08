@@ -1,18 +1,24 @@
 
 <?php
+function pageController(){
+	$data = [];
+	$favoriteThings = [
+		'flensing',
+		'eruption',
+		'gryphon',
+		'trireme',
+		'legend',
+		'chimera',
+		'fiction',
+		'presbyter',
+		'mullion',
+		'quirk',
+		];
+	$data['favoriteThings'] = $favoriteThings;  // favoritethings is the new variable
+	return $data;
+	}
 
-$favoriteThings = [
-	'flensing',
-	'eruption',
-	'gryphon',
-	'trireme',
-	'legend',
-	'chimera',
-	'fiction',
-	'presbyter',
-	'mullion',
-	'quirk',
-];
+extract(pageController());
 
 ?>
 
@@ -21,7 +27,7 @@ $favoriteThings = [
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Server Name Generator</title>
+    <title>My Fav Things</title>
 	    <style>
 	    	body {
 

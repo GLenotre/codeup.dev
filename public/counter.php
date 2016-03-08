@@ -25,7 +25,6 @@
             'counter' => $counter,  // asssociation key/value
         );   
 
-
      return $values;
 
     }
