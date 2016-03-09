@@ -1,16 +1,17 @@
 <?php
+require_once 'functions.php';
 function pageController() {
-    $counter = (isset($_GET['counter'])) ?  ($_GET['counter']) : 0;
-    $hit = $counter++;
-    // $miss = die("Game over");
 
-return array(
-    'hit' => $hit,
-    'miss' => $miss,
-    // 'click' => $counter
-    );
-}
-extract(pageController());
+        $counter = inputHas('counter') ? inputGet('counter') : 0;
+        $hit = $counter + 1;
+        $miss = "You lost";
+
+        return ['counter' => $counter, 'hit' => $hit, 'miss' => $miss];
+
+    }
+   
+    extract(pageController());
+
 ?>
 
 
@@ -25,8 +26,8 @@ extract(pageController());
     <h2>Counter Value: <?= $counter; ?></h2>
 
 <!-- key hit, value hit/miss -->
-<a href="ping.php">HIT</a>
-<a href="ping.php">MISS</a>
 
+<a href="ping.php?counter=<?= $hit; ?>">HIT</a>
+<a href="ping.php?counter=<?= $miss; ?>">MISS</a>
 </body>
 </html>

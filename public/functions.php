@@ -1,7 +1,7 @@
 <?php
 
 // returns true or false based on whether the key is available.
-function inputHas($key): {
+function inputHas($key) {
 
 	return isset($_REQUEST[$key]);
 
@@ -10,7 +10,7 @@ function inputHas($key): {
 //returns the value specified by the key, or null if the key is not set.
 function inputGet($key) {
 
-	if (inputHas($key) {
+	if (inputHas($key)) {
 		return $_REQUEST[$key];
 	} 
 
