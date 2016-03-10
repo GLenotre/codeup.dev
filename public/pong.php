@@ -1,8 +1,8 @@
 <?php
-require_once 'functions.php';
+require_once '../Input.php';
 function pageController() {
 
-        $counter = inputHas('counter') ? inputGet('counter') : 0;
+        $counter = Input::has('counter') ? Input::get('counter') : 0;
         $hit = $counter + 1;
         $miss = "You lost";
 
