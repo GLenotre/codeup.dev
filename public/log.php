@@ -2,9 +2,10 @@
 class Log
 
 { 
-	public $filename;
+	public $filename;  // property, variable visible only inside the class Log,
+	// can be used in any method with the keyword $this->
 
-public function logMessage($logLevel, $message)
+public function logMessage($logLevel, $message)  // method
 	{
 	// Creates variables for the formatted times 
 	date_default_timezone_set("America/Chicago");
@@ -42,7 +43,5 @@ public function writeFile($message)
 
 }
 
-$logger = new Log();
-$logger->logMessage("info", "Today is");
-$logger->logMessage("error", "Try again");
+
 ?>
