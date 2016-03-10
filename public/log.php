@@ -45,7 +45,7 @@ public function logError($message)
 // The fwrite line adds the message, 
 public function writeFile($message) 
 {
-	$handle = fopen($this->filename, 'a');
+	$this->handle = fopen($this->filename, 'a');
 	fwrite($handle, PHP_EOL . $message);
 }
 
