@@ -9,8 +9,8 @@ class Log
 
     public function __construct($prefix = 'log')  // 'log' will the default parameter
 {
-    $date = date("Y-m-d");
-    $this->filename=$prefix . $date . '.log';
+    $this->date = date("Y-m-d");
+    $this->filename=$prefix . '-' . $date . '.log';
     $this->handle = fopen($this->filename, 'a')
 }
 
@@ -18,7 +18,7 @@ public function logMessage($logLevel, $message)  // method
 	{
 	// Creates variables for the formatted times 
 	date_default_timezone_set("America/Chicago");
-    $date = date("Y-m-d");
+ 
     $this->filename = "log-{$date}.log";  // reuses the definition of $filename globally
 
     if ($logLevel == 'info') {
