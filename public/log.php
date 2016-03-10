@@ -33,12 +33,12 @@ public function logMessage($logLevel, $message)  // method
 // The logInfo and logError functions create different messages to be printed out by the logMessages functions. 
 public function logInfo($message)
 	{
-    return $this->writeFile ("[INFO], $message.");
+	$this->writeFile ("[INFO], $message.");
 	}
 
 public function logError($message)
 	{
-    return $this->writeFile ("[ERROR], $message.");
+	$this->writeFile ("[ERROR], $message.");
 	}
 
 // This function creates or opens the file
