@@ -1,9 +1,5 @@
 <?php
 
-$dbc = new PDO('mysql:host=127.0.0.1;dbname=parks_db', 'vagrant', 'vagrant');
-
-$dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 // Create the query and assign to var
 $query = 'DROP TABLE IF EXISTS parks';
 $dbc->exec($query);
