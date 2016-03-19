@@ -1,7 +1,7 @@
 <?php
 
 require_once '../db_connect.php';
-require_once '../php/parks_login.php';
+
 
 If (Input::has('park_id')) {
 	$id = Input::get('park_id');
