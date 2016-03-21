@@ -19,10 +19,18 @@ $parks = [
 
 $dbc->exec('truncate parks');
 
-// Create INSERT query
+
+$query = "INSERT INTO parks (name, description, area_in_acres, date_established, location)
+	VALUES (:name, :description, :area_in_acres, :date_established, :location)";
+$stmt = $dbc->prepare($query);
+
 foreach($parks as $park) {
-	$query = "INSERT INTO parks (name, description, area_in_acres, date_established, location)
-		VALUES ('{$park['name']}', '{$park['description']}', '{$park['area_in_acres']}', '{$park['date_established']}', '{$park['location']}')";
-		$dbc->exec($query);
+	$stmt->bindValue(':name', $park['name'], PDO::PARAM_STR);
+	$stmt->bindValue(':description', $park['description'], PDO::PARAM_STR);
+	$stmt->bindValue(':area_in_acres', $park['area_in_acres'], PDO::PARAM_STR);
+	$stmt->bindValue(':date_established', $park['date_established'], PDO::PARAM_STR);
+	$stmt->bindValue(':location', $park['location'], PDO::PARAM_STR);
+
+	$stmt->execute();
 }
 

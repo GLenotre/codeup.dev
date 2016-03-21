@@ -2,7 +2,6 @@
 
 require_once '../db_connect.php';
 require_once '../Input.php';
-require_once '../park_seeder.php';
 // require_once '../php/parks_login.php';
 
 if(Input::has('page')) {
