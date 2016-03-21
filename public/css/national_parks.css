@@ -1,0 +1,19 @@
+body {
+	/*background-color: lightblue;*/
+	background-image: url("/img/10690327_10154605476835175_3006026701679091513_n.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: white;
+	text-shadow: 1px 1px black;
+
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: white;
+    text-decoration: underline;
+}

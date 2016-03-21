@@ -4,14 +4,18 @@ require_once '../db_connect.php';
 require_once '../Input.php';
 require_once '../park_seeder.php';
 // require_once '../php/parks_login.php';
+
+if(Input::has('page')) {
 $page = $_GET['page'];
-$offset = ($page - 1) * 4;
+} else {
+    $page=1;
+}
+
+$offset = ($page-1) * 4;
 $limit = 4;
-$statement = $dbc->query("SELECT * 
-    FROM parks
+$statement = $dbc->query("SELECT * FROM parks
     LIMIT $limit
     OFFSET $offset
-    
     ");
 
 //returns an array indexed by column name as returned in your result set
@@ -53,8 +57,10 @@ $parks = $statement->fetchAll(PDO::FETCH_ASSOC);
             <?php endforeach ?>
         </tbody>
 	</table>
-<a href="national_parks.php?page=<?= $page - 1 ?>">previous</a>
-    <a href="national_parks.php?page=<?= $page + 1 ?>">next</a>
+
+<a href="national_parks.php?page=<?= $page - 1 ?>">Previous</a>
+<a href="national_parks.php?page=<?= $page + 1 ?>">Next</a>
+
 </body>
 </html>
 
