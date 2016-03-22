@@ -1,6 +1,10 @@
 <?php
 
 require_once 'db_connect.php';
+require_once 'parks_migration.php';
+
+$truncate_parks = "TRUNCATE parks";
+$dbc->exec($truncate_parks);
 
 $parks = [
 	['name' => 'Acadia', 'description' => 'Covering most of Mount Desert Island and other coastal islands, Acadia features the tallest mountain on the Atlantic coast of the United States, granite peaks, ocean shoreline, woodlands, and lakes. There are freshwater, estuary, forest, and intertidal habitats.', 'area_in_acres' => '47389', 'date_established' => 'February 26, 1919', 'location'=> 'Maine'],
@@ -17,12 +21,9 @@ $parks = [
 	['name' => 'Channel Islands', 'description' => "Five of the eight Channel Islands are protected, and half of the park''s area is underwater. The islands have a unique Mediterranean ecosystem originally settled by the Chumash people. They are home to over 2,000 species of land plants and animals, and 145 are unique to them, including the island fox. Professional ferry services offer transportation to the islands from the mainland.", 'area_in_acres' => '249561', 'date_established' => 'March 5, 1980', 'location'=> 'California'],
 ];
 
-$dbc->exec('truncate parks');
 
-
-$query = "INSERT INTO parks (name, description, area_in_acres, date_established, location)
-	VALUES (:name, :description, :area_in_acres, :date_established, :location)";
-$stmt = $dbc->prepare($query);
+$stmt = $dbc->prepare("INSERT INTO parks (name, description, area_in_acres, date_established, location)
+	VALUES (:name, :description, :area_in_acres, :date_established, :location)");
 
 foreach($parks as $park) {
 	$stmt->bindValue(':name', $park['name'], PDO::PARAM_STR);

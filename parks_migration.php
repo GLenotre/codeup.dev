@@ -3,8 +3,8 @@
 require_once 'db_connect.php';
 
 // Create the query and assign to var
-$query = 'DROP TABLE IF EXISTS parks';
-$dbc->exec($query);
+
+$dbc->exec('DROP TABLE IF EXISTS parks');
 
 $query = 'CREATE TABLE parks (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,

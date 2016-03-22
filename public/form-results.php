@@ -3,6 +3,9 @@ $name = isset($_POST['name']) ? $_POST['name'] : '';
 $number = isset($_POST['number']) ? $_POST['number'] : '';
 
 var_dump($_POST);
+
+
+
 ?>
 <!DOCTYPE html>
 <html>
