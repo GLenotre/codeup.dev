@@ -8,6 +8,7 @@ class Input
      * @param string $key index to look for in request
      * @return boolean whether value exists in $_POST or $_GET
      */
+
     public static function has($key)
     {
         if (isset($_REQUEST[$key])) {
@@ -36,6 +37,30 @@ class Input
     public static function escape($key)
     {
         return  htmlspecialchars(strip_tags($key));
+    }
+
+    public static function getString($key) 
+    {
+        $value = self::get($key);
+        
+        if($value == null || is_resource($value) || is_numeric($value))
+        {
+            throw new Exception("{$key} is not a string.");
+        } 
+            return (float) $value;
+        // $this->firstName = trim($firstName);
+    }
+
+
+    public static function getNumber ($key)
+
+    {
+        $value = self::get($key);
+        if(!is_numeric($value) || $value == null)
+        {
+            throw new Exception("{$key} is not a number.");
+        } 
+            return $value;
     }
 
     ///////////////////////////////////////////////////////////////////////////
