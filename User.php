@@ -13,7 +13,8 @@ class User extends Model
         self::dbConnect();
 
         // @TODO: Use prepared statements to ensure data security
-        $stmt = self::$dbc->prepare("INSERT INTO users (first_name, last_name, email_address) VALUES (:first_name, :last_name, :email_address)");
+        $stmt = self::$dbc->prepare("INSERT INTO users (first_name, last_name, email_address) 
+            VALUES (:first_name, :last_name, :email_address)");
         
         // @TODO: You will need to iterate through all the attributes to build the prepared query
         $stmt->bindValue(':first_name', $this->first_name, PDO::PARAM_STR);
@@ -68,7 +69,7 @@ class User extends Model
         // The following code will set the attributes on the calling object based on the result variable's contents
         $instance = null;
         if (!empty($result)) {
-            $instance = new static($result);
+            $instance = new static($result);  // new Static = new User
         }
         return $instance;
     }

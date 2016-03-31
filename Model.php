@@ -34,6 +34,7 @@ abstract class Model
     {
         if (!self::$dbc) {
             $dbc = new PDO('mysql:host=127.0.0.1;dbname=codeup_test_db', 'vagrant', 'vagrant');
+            
             self::$dbc = $dbc;
         }
     }
