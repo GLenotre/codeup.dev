@@ -84,7 +84,7 @@ class User extends Model
         self::dbConnect();
         $stmt = self::$dbc->query("SELECT * from static::$table");
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // @TODO: Learning from the find method, return all the matching records
+        return $result;// @TODO: Learning from the find method, return all the matching records
     }
 
 }
