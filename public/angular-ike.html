@@ -1,0 +1,62 @@
+
+<!doctype html>
+<html ng-app="ike">
+
+
+<head>
+	<meta charset="utf-8">
+	<title>Angular JS Demo</title>
+
+
+</head>
+<body>
+<script src="/js/angular.min.js"></script>
+<script src="/js/ikeModule.js"></script>
+
+<form novalidate>
+    <label for="first_name">First Name</label>
+    <input type="text" id="first_name" ng-model="user.firstName">
+
+    <label for="last_name">Last Name</label>
+    <input type="text" id="last_name"  ng-model="user.lastName">
+
+    <label for="email">eMail</label>
+    <input type="email" id="email" ng-model="user.email" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" ng-model="user.password">
+</form>
+
+<div>
+    Welcome {{ user.firstName }} {{ user.lastName }}<br>
+    We will send a confirmation eMail to {{ user.email }}
+</div>
+
+<h1>{{"Hello San Antonio!" | lowercase}}</h1>
+<p>{{23452345 + 09878765 / 3| number:2}}</p>
+
+<ul>
+    <li ng-hide="1 < 2">One is Less Than Two</li>
+    <li ng-hide="1 <= 2">One is Less Than or Equal to Two</li>
+    <li ng-hide="1 == 2">One is Equal to Two</li>
+    <li ng-hide="1 >= 2">One is Greater Than or Equal to Two</li>
+    <li ng-hide="1 > 2">One is Greater Than Two</li>
+</ul>
+
+	    <ol>
+	    	<li ng-repeat="letter in ['A', 'B', 'C', 'D', 'E', 'F']">{{ letter }}</li>
+		</ol>
+
+		<ul>
+    <li ng-repeat="num in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" ng-if="num % 2 == 0">
+        {{ num }} is even!
+    </li>
+	</ul>
+
+<img ng-src="{{ '/img/header.jpg' }}" alt="Computer on desk">
+
+
+
+
+</body>
+</html>
